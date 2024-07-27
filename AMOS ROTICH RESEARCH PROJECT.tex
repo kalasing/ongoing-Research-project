@@ -1,0 +1,738 @@
+\documentclass[12pt]{report}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=1in]{geometry}
+\usepackage{graphicx}
+\begin{document}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{screenshot002}
+
+	\label{fig:screenshot002}
+\end{figure}
+
+
+	
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{1cm}
+			
+			
+			\textbf{MATHEMATICAL MODELLING OF SUBSTANCE ABUSE BY COMMERCIAL DRIVERS}
+			
+			\vspace{2cm}
+			
+			
+			\textbf{AMOS KIPNGENO ROTICH} \\
+			\textbf{S084-01-2742/2021}
+			
+		\vspace{2cm}
+			
+
+			\textbf{A RESEARCH PROPOSAL SUBMITTED TO THE DEPARTMENT OF
+			MATHEMATICS AND PHYSICAL SCIENCES IN PARTIAL FULFILLMENT OF 
+			REQUIREMENT FOR AWARD OF THE DEGREE OF BACHELOR OF SCIENCE IN MATHEMATICS AND MODELLING PROCESS}\\
+			\vspace{6cm}
+			\textbf{JUNE 2024}
+				\end{center}
+		
+		\newpage
+		
+		
+		
+		\thispagestyle{empty}
+	\end{titlepage}
+\newpage
+
+\pagenumbering{roman}	
+\section*{DECLARATION}
+\addcontentsline{toc}{section}{DECLARATION}
+\subsection*{DECLARATION BY THE STUDENT}
+This research proposal is my original work and has not been presented in any university for a degree consideration of any certification. \\\\
+AMOS KIPNGENO ROTICH \hspace*{1.7cm}
+S084-01-2742/2021 \\\\
+Signature…………………………… DATE………………………………………\\\\
+\textbf{THE SUPERVISOR}\\
+\\
+MS AGNES NGETHA \\\\
+Signature………………….... DATE…………………… \\\\
+Department of Mathematics and Physical Sciences
+		
+	
+	
+	\newpage
+	
+	\tableofcontents
+	\section*{ABSTRACT}
+	\addcontentsline{toc}{section}{ABSTRACT}
+		
+	
+In this research, I formulated a mathematical model for substance abuse to examine the dynamics of substance abuse among commercial drivers, particularly the use of mood-altering substances. Viewing substance abuse as a social and public health issue, the model utilizes a compartmental approach based on principles from mathematical epidemiology to illustrate the influence of peer interactions and other factors on substance use behaviors. I  formulated  system of non-linear differential equations that describe the progression and prevalence of substance use over time. 
+Key mathematical analyses include the positivity and boundedness of solutions, ensuring logical predictions of substance use, and the determination of the substance-free equilibrium where no substance use occurs among drivers. I also computed the basic reproduction number, \( R_0 \), which signifies the possibility for substance use to become endemic, and explores the conditions under which a stable endemic equilibrium can be reached. The analysis of the contribution of each parameter was performed using sensitivity analysis. The analysis revealed that an increase in the recruitment rate of commercial drivers and the rate at which commercial drivers are influenced and get in contact with those using drugs would cause an increase in the substance abuse number.
+
+
+
+	
+	\newpage
+	
+	\section*{SYMBOLS}
+	\addcontentsline{toc}{section}{SYMBOLS}
+	
+	\begin{tabular}{|c|l|}
+		
+		\hline\textbf{$\sigma$} - sigma  & $\theta$ - theta \\
+	\hline	$\mu$ - mu & $\Lambda$ - capital lambda \\
+	\hline	$\gamma$ - gamma & $\rho$ - rho \\
+	\hline	$\beta$ - beta & $\delta$ - delta \\\hline
+	\end{tabular}
+	
+	\newpage
+	
+	
+
+	\pagenumbering{arabic}
+	\chapter{Introduction }
+	\section{Background of the Study}
+
+	
+
+	Substance abuse among commercial drivers represents a critical concern due to its potential to compromise road safety and public health. The nature of the job, which often involves long hours of driving, irregular schedules, and extended periods away from home, creates a conducive environment for substance misuse. Factors such as the need to meet demanding deadlines, cope with job-related stressors, and combat fatigue on the road may contribute to the use of substances as a means of staying awake or managing stress. Moreover, the isolation experienced by drivers during long-haul trips and the lack of access to healthcare services while on the road further exacerbate vulnerabilities to substance abuse. Additionally, the consequences of substance abuse among commercial drivers extend beyond individual health risks to include increased rates of motor vehicle accidents, injuries, fatalities, and economic costs associated with property damage, medical expenses, and legal repercussions. 
+	Understanding the complexities of substance abuse among commercial drivers requires an approach that considers the interplay of individual, organizational, and regulatory factors. Epidemiological research provides valuable insights into the prevalence, patterns, and trends of substance use within the commercial driving population, informing targeted interventions and policy development. Some studies shed light on the underlying factors driving substance abuse among drivers, including stress, social influences, and coping mechanisms, emphasizing the need for tailored prevention and intervention strategies. Furthermore, efforts to promote a culture of safety, wellness, and regulatory compliance within the transportation industry are essential for mitigating risks associated with substance abuse. By addressing substance abuse among commercial drivers holistically, stakeholders can work collaboratively to enhance prevention efforts, improve access to resources, and safeguard the well-being of drivers and the communities they serve. 
+	
+	
+\section{Problem Statement}
+
+
+	Substance abuse among commercial drivers presents a complex challenge with significant implications for road safety and public health. Despite the existence of laws and regulations aimed at curbing drug driving, a considerable number of commercial drivers continue to engage in substance abuse, leading to increased risks of accidents and fatalities. There is a lack of comprehensive mathematical models to analyze the dynamics of substance abuse among commercial drivers and its impact on driving behavior and road safety. Therefore, the primary objective of this project is to develop a mathematical model that can describe the patterns of substance abuse among commercial drivers, identify key factors influencing substance use behaviors, and assess the potential effects on driving performance and accident rates.
+	\section{Justification}
+	
+	Cases of driving under the influence of stimulants and mood changing substances are directly associated with road carnage. Commercial vehicles could be deadly for both the driver and other occupants when the driver is driving under the influence of some substance.Therefore 
+	Formulating a mathematical model to analyze substance abuse among commercial drivers is important for providing an understanding of the factors influencing driving behaviors under the influence, predicting the impact of substance use on driving performance and road safety outcomes, and guiding the development of evidence-based interventions. Formulating and applying such a model can offer valuable insights into the underlying mechanisms of drug driving behaviors, thereby informing targeted intervention strategies.
+	
+	
+	\section{Objectives}
+	
+	\subsection{General Objective:}
+
+	To formulate a mathematical model to describe the patterns of substance abuse among commercial drivers.
+\subsection{Specific Objectives}
+\begin{enumerate}
+		\item Develop a mathematical model
+		\item To determine the equilibrium points of the mathematical model and investigate
+		their stabilities.
+		\item Utilize the developed model to analyze the dynamics of substance abuse behaviors among commercial drivers and identify  factors influencing  driving under the influence.
+		\item Identify strategies that effectively reduce substance abuse among commercial drivers.
+	\end{enumerate}
+	
+		\chapter{Literature Review}
+		
+This chapter provides reviews of the existing literature on substance abuse and its related issues. It examines various themes, research approaches, and methodologies employed in previous studies, aiming to assess the current state of knowledge and identify effective strategies for understanding and addressing substance abuse problems. Through this review, the chapter highlights key findings, identifies gaps in the research, and suggests directions for future investigation in the field of substance abuse.\\\\
+\textit{Zhao et al. (2014)} studied the effects of alcohol on drivers and their performance on straight roads. Using a simulated driving experiment, the researchers collected data on 25 drivers’ subjective feelings and driving performance across different blood-alcohol concentration (BAC) levels. The results revealed that alcohol impacted drivers in numerous ways, including their attitude, judgment, vigilance, perception, reaction time, and vehicle control. Higher BAC levels correlated with increased accident rates, as well as significant changes in driving performance metrics such as average speed, speed variability, and lane position variability.\\\\
+\textit{Yunusa et al. (2017)} conducted a study to explore the determinants of substance abuse among commercial bus drivers in Kano Metropolis, Kano State, Nigeria. The research highlighted that the use of illicit substances among these drivers is on the rise, which poses significant health risks to both the drivers and their passengers. Despite the increasing trend, there is a lack of empirical data on the factors contributing to this issue. The study selected 196 respondents through a multi-stage cluster sampling technique and collected data using a validated and structured interviewer-administered questionnaire. The analysis revealed that 81.1\% of the respondents had abused a substance at some point. The primary factors associated with substance abuse included the desire to relax or sleep after a hard day's work (84.8\%), the need to work hard (48\%), stress relief (81\%), anxiety relief (66.5\%), and the pursuit of pleasure (72\%). The most commonly abused substances were solution (93.3\%), coffee (85.2\%), Tramadol (80.6\%), local stimulant tea (Gadagi) (78.1\%), cola-nut (66.3\%), and tobacco (65\%). The study concluded that controlling the production and sale of commonly abused substances could reduce substance abuse. Therefore, it recommended that the government implement measures to regulate these substances. \\\\ 
+\textit{Dini et al. (2019)} conducted a systematic review and meta-analysis to assess the prevalence and impact of psychoactive drug consumption among truck drivers. Their study addressed a significant concern within the trucking sector, where the use of psychoactive substances poses risks to both drivers' health and public safety by increasing the likelihood of injuries and traffic accidents. The meta-analysis revealed that 27.6\% of truck drivers consumed drugs, with particularly high rates of CNS-stimulant use, including amphetamines (21.3\%) and cocaine (2.2\%). These substances are often used by drivers as performance enhancers to boost productivity. However, chronic and high-dose consumption of these drugs negatively affects driving skills, compromising road safety. The study highlights the need for further research to enhance the evidence base and inform Occupational Health Professionals and policymakers about this critical issue.\\\\
+\textit{Behnood and Mannering (2017)} investigated the effects of drug and alcohol consumption on driver injury severities in single-vehicle crashes. Their study utilized a random parameters logit model to analyze differences in injury severities among unimpaired, alcohol-impaired, and drug-impaired drivers using data from single-vehicle crashes in Cook County, Illinois, over a 9-year period. They considered a wide range of variables potentially affecting driver injury severity, including roadway and environmental conditions, driver attributes, time and location of the crash, and crash-specific factors.
+The results reveals. Unimpaired drivers were found to be more responsive to variations in lighting, aded significant differences in the determinants of driver injury severities across the different groups of driververse weather, and road conditions. However, they also exhibited more heterogeneity in their behavioral responses to these conditions compared to impaired drivers. Age and gender were identified as important determinants of injury severity, with effects varying significantly across all drivers, particularly among alcohol-impaired drivers.
+Overall, the study concluded that statistically significant differences exist in driver injury severities among unimpaired, alcohol-impaired, and drug-impaired driver groups. Unimpaired drivers displayed more variability in injury outcomes under adverse weather and road conditions, reflecting their ability to utilize their full knowledge and judgment. In contrast, impaired drivers showed less variability in factors affecting injury severity, indicating a more consistent impact of decision-impairing substances on their driving behavior.\\\\
+\textit{Matonya and Kuznetsov (2021)} addressed the global burden of drug abuse by presenting a mathematical model aimed at understanding and controlling drug abuse in Tanzania. The study utilized the next-generation matrix method to compute an epidemic threshold value, establishing conditions for the existence and stability of stationary points within the model. Through numerical simulation, the researchers explored the dynamic behavior of the model and identified the rate of contact between susceptible individuals and drug users, as well as the rate of recovery after rehabilitation, as key factors influencing the dynamics of the drug user population in society. Furthermore, the model was analyzed to study the dynamic behavior of drug abuse when control measures were implemented. The results indicated a significant reduction in the number of drug users, highlighting the importance of early intervention and the establishment of strict laws to address this issue within societies.\\\\
+\textit{Orwa and Nyabadza (2019)} addressed the pressing issue of substance abuse, particularly the co-abuse of alcohol and methamphetamine, in the Western Cape province of South Africa, which has exacerbated the drug epidemic in the region. They formulated a mathematical model to understand the dynamics of alcohol and methamphetamine co-abuse and its impact on public health and socio-economic factors.
+The study demonstrated that the equilibria of the sub-models were locally and globally asymptotically stable when the sub-model threshold parameters were less than unity, indicating stability in certain conditions. The basic reproduction number due to co-abuse was identified as the maximum of the two sub-model reproduction numbers.
+Sensitivity analysis revealed that the most sensitive parameters in the co-abuse epidemic were the alcohol and methamphetamine recruitment rates, highlighting the importance of addressing these factors in intervention strategies. The prevalence curve indicated a persistent drug problem in the region, underscoring the need for comprehensive social programs to raise awareness of the dangers of multiple substance abuse.
+The study concluded by emphasizing the importance of promoting educational campaigns in learning institutions, social media, and health institutions to increase awareness and understanding of the risks associated with substance abuse. Additionally, transmission control efforts should focus on enhancing the quitting process and providing support services to drug users during and after treatment to minimize cases of relapse.\\\\
+\textit{Martin et al. (2017)} aimed to estimate the relative risks of responsibility for fatal accidents associated with driving under the influence of cannabis or alcohol, along with the prevalence of these influences among drivers and the corresponding attributable risk ratios. Additionally, they sought to estimate these parameters for three other groups of illicit drugs (amphetamines, cocaine, and opiates) and compare the results to a previous study conducted in France between 2001 and 2003.
+The study analyzed police procedures for fatal accidents in Metropolitan France during 2011, encoding 300 characteristics to create a database of 4,059 drivers. Information on alcohol and illicit drugs was derived from tests for positive and confirmed through blood analysis. Drivers responsible for causing accidents were compared to those involved in accidents for which they were not responsible, serving as a general reference group.
+The results indicated that the proportion of drivers under the influence of alcohol was estimated at 2.1 percent,   while those under the influence of cannabis was estimated at 3.4 \% . Drivers under the influence of alcohol were found to be 17.8 times more likely to be responsible for a fatal accident, with an estimated 27.7\% of fatal accidents potentially preventable if drivers did not exceed the legal limit for alcohol. Meanwhile, drivers under the influence of cannabis had a 1.65 times increased risk of causing a fatal accident, with an estimated 4.2\% of fatal accidents potentially preventable if drivers did not drive under the influence of cannabis.\\\\
+
+From  the literature above, it is evident that there is need to formulate a mathematical model to describe the patterns of substance abuse among commercial drivers .Developing and applying this model, it aims to offer valuable insights for the development of targeted interventions and policy measures aimed at reducing the risks associated with substance abuse among commercial drivers.
+ 
+\newpage
+\chapter{Research Methodology}
+\section{Formulation of the Mathematical Model  }
+\subsection{Model Assumption}
+
+In setting up the model, we consider certain assumptions that would help us concentrate on answering our desired question. The list of some  assumptions of the model is given as follows:
+\begin{itemize}
+	\item All drivers in susceptible population are enrolled at a constant rate.
+	\item All drivers are born susceptible.
+	\item Drivers interact uniformly within the population.
+	\item Drivers can exit or removed in the system due to  death.
+\end{itemize}
+
+\subsection{Mathematical Model}
+
+The substance model divides the commercial drivers into four compartments depending on their substance use status as follows:
+\begin{itemize}
+	\item \( \mathbf{S} \) – Comprises all drivers who are susceptible to substance abuse.
+	\item \textbf{\( \mathbf{D} \)} – All drivers who are substance users who use substance of any form.
+	\item \(\mathbf{A} \) – Comprises all drivers who abuse substances of any form.
+	\item \(\mathbf{R}  \) – Drivers who stopped using substances either by abstinence or through rehabilitation.
+\end{itemize}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.7\linewidth]{screenshot007}
+	
+	\label{fig:screenshot007}
+\end{figure}
+\newpage
+\begin{center}
+	Figure 1: Flow diagram of substance use and abuse.
+\end{center}
+Parameter \( \mathbf{\Lambda} \) represents recruitment rate into the susceptible population \( \mathbf{S} \). \( \bm{\beta }\) is the Substance initiation rate  which is where individuals in \( \mathbf{S} \) start engaging in substance use which can be   due to influence and contact from those who are already using them. \(\bm{ \rho} \) is the rate at which substance users abuse substances. \( \bm{\alpha} \) is the recovery rate of substance users. \(\bm{ \gamma} \) is the recovery rate of substance abusers. \(\bm{ \mu} \) is the death rate.\\ The total population of the drivers thus becomes:
+\[
+N(t) = S(t) + D(t) + A(t) + R(t)
+\]
+
+The system of ordinary differential equations obtained from Figure 1 are as follows:
+
+\[	\quad (1)\hspace{0.5cm}
+\begin{cases}
+	
+	\frac{dS}{dt} = \Lambda N - (\beta D + \mu)S \\
+	\frac{dD}{dt} = \beta SD - (\mu + \alpha + \rho)D \\
+	\frac{dA}{dt} = \rho D - (\mu + \gamma)A \\
+	\frac{dR}{dt} = \alpha D + \gamma A - \mu R
+\end{cases}\]
+\subsection{Parameter Interpretation}
+
+\begin{center}
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Symbol} & \textbf{Description} \\
+		
+		\hline$t$ & Time \\
+		\hline$\Lambda$ & Recruitment rate \\
+	\hline	$\mu$ & Death  rate \\
+	\hline	$\gamma$ & Recovery rate of substance abusers \\
+	\hline	$\beta$ & Substance initiation rate \\
+	\hline	$\rho$ & Substance abuse rate \\
+	\hline	$\alpha$ & The recovery rate of substance users \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\section{Mathematical Analysis}
+Analysing the model for the substance abuse by commercial drivers-based on the following sub section to determine all threshold parameter for the substance abuse  dynamics and effect of treatment. 
+\subsection{Positivity and Boundedness of the Solutions}
+
+\subsubsection{Positivity}
+
+\textbf{Theorem:} The region \( R \) given by \( R = \{(S, D, A, R) \in \mathbb{R}_+^4 \mid S \geq 0, D \geq 0, A \geq 0, R \geq 0\} \) is positively invariant for all \( t \geq 0 \).
+
+
+\textbf{Proof:} Consider the first equation equation in (1):
+\[
+\frac{dS}{dt} = \Lambda - (\beta D + \mu)S
+\]
+Thus,
+\[
+\frac{dS}{dt} \geq -(\beta D + \mu)S
+\]
+Integrating both sides gives:
+\[
+\int \frac{1}{S} \, dS \geq -\int (\beta D + \mu) \, dt
+\]
+\[
+\ln S \geq -( \beta D + \mu ) t
+\]
+Exponentiating both sides yields:
+\[
+S \geq e^{-(\beta D + \mu)t}
+\]
+At \( t = 0 \):
+\[
+S(0) \geq 0
+\]
+Hence, \( S \geq 0 \). Thus, \( S(t) \) stays positive.
+
+
+
+Consider the second equation:
+\[
+\frac{dD}{dt} = \beta SD - (\mu + \alpha + \rho)D
+\]
+Thus,
+\[
+\frac{dD}{dt} \geq -(\mu + \alpha + \rho)D
+\]
+Integrating both sides gives:
+\[
+\int \frac{1}{D} \, dD \geq -\int (\mu + \alpha + \rho) \, dt
+\]
+\[
+\ln D \geq -( \mu + \alpha + \rho ) t
+\]
+Exponentiating both sides yields:
+\[
+D \geq e^{-(\mu + \alpha + \rho)t}
+\]
+At \( t = 0 \):
+\[
+D(0) \geq 0
+\]
+Hence, \( D \geq 0 \).
+
+\subsubsection*{Third Equation}
+
+Consider the third equation:
+\[
+\frac{dA}{dt} = \rho D - (\mu + \gamma)A
+\]
+Thus,
+\[
+\frac{dA}{dt} \geq -(\mu + \gamma)A
+\]
+Integrating both sides gives:
+\[
+\int \frac{1}{A} \, dA \geq -\int (\mu + \gamma) \, dt
+\]
+\[
+\ln A \geq -( \mu + \gamma ) t
+\]
+Exponentiating both sides yields:
+\[
+A \geq e^{-(\mu + \gamma)t}
+\]
+At \( t = 0 \):
+\[
+A(0) \geq 0
+\]
+Hence, \( A \geq 0 \).
+
+\subsubsection*{Fourth Equation}
+
+Consider the fourth equation:
+\[
+\frac{dR}{dt} = \alpha D + \gamma A - \mu R
+\]
+Thus,
+\[
+\frac{dR}{dt} \geq -\mu R
+\]
+Integrating both sides gives:
+\[
+\int \frac{1}{R} \, dR \geq -\int \mu \, dt
+\]
+\[
+\ln R \geq -\mu t
+\]
+Exponentiating both sides yields:
+\[
+R \geq e^{-\mu t}
+\]
+At \( t = 0 \):
+\[
+R(0) \geq 0
+\]
+Hence, \( R \geq 0 \).
+\subsection*{ Boundedness}
+Considering $\psi = \{S(t), D(t), R(t), A(t)\}$ are positive for $t \geq 0$. Boundedness refers to the region in which solutions of the model or system are uniformly bounded in the proper subset $\psi \subset \mathbb{R}_+^4$. Considering the total population at any time, $t$:
+\[ N(t) = S(t) + D(t) + A(t) + R(t) \]
+\[ \frac{dN}{dt} = \frac{dS}{dt} + \frac{dD}{dt} + \frac{dA}{dt} + \frac{dR}{dt} \]
+\[ \frac{dN}{dt} = (\Lambda - (\beta D - \mu)S) + (\beta SD - (\mu + \alpha + \rho)D) + (\rho D - (\mu + \gamma)A) + (\alpha D + \gamma A - \mu R) \]
+By simplification,
+\[ \frac{dN}{dt} = \Lambda - \mu S - \mu D - \mu A - \mu R \]
+
+There are no substance addiction and recovery in the absence of substance. Hence, $D = 0$, $R = 0$, $A = 0$. It becomes;
+\[ \frac{dN}{dt} = \Lambda - \mu S \]
+
+If the total population $N$ is equal to the number of Susceptible $S$, it implies that $N = S$, such that;
+\[ \frac{dN}{dt} = \Lambda - \mu N \]
+
+Hence,
+\[ \frac{dN}{dt} + \mu N \leq \Lambda \]
+
+To integrate the above equation, first obtain an integrating factor.
+The integrating factor is $e^{\int \mu \, dt} = e^{\mu t}$. Then we have
+\[ \int \frac{d}{dt} [Ne^{\mu t}] \leq \int \Lambda e^{\mu t} \]
+\[ Ne^{\mu t} \leq \frac{\Lambda}{\mu} e^{\mu t} + C \]
+
+Dividing both sides by $e^{\mu t}$,
+\[ N \leq \left( \frac{\Lambda}{\mu} + C e^{-\mu t} \right) \]
+
+Where $C$ is the constant of integration. Taking the limit as $t \to \infty$, we have
+\[ \lim_{t \to \infty} N(t) \leq \left( \lim_{t \to \infty} \frac{\Lambda}{\mu} + C e^{-\mu t} \right) \]
+Then,
+\[ N(t) \leq \frac{\Lambda}{\mu} \]
+This proves the boundedness of the solution inside $\mathbb{R}$. This implies that all solutions of the system starting in $\mathbb{R}$ remain in $\mathbb{R}$ for all $t \geq 0$. Thus, $\mathbb{R}$ is positively invariant and attracting, and hence it is sufficient to consider the dynamics of the system.\\\\
+\subsection{Substance free equilibrium:}
+The substance-free equilibrium is obtained when the system of differential equations is set to zero. At this point, there are no drug users, addicted individuals, or recovered individuals.
+\[ (D = 0, R = 0, A = 0) \]
+
+Equating the systems of equations from the model to zero:
+\begin{center}
+
+
+\[
+\begin{aligned}
+	\Lambda - (\beta D + \mu)S &= 0, \\
+	\beta SD - (\mu + \alpha + \rho)D &= 0, \\
+	\rho D - (\mu + \gamma)A &= 0, \\
+	\alpha D + \gamma A - \mu R &= 0.
+\end{aligned}
+\]
+\end{center}
+Therefore,
+\[ \Lambda - \mu S = 0 \]
+which gives,
+\[ S^* = \frac{\Lambda}{\mu} \]
+Thus, the substance-free equilibrium (SFE) point for the system is \( E^* = (S^*, D^*, A^*, R^*) = \left( \frac{\Lambda}{\mu}, 0, 0, 0 \right) \).\\\\
+\subsection{Stability of the Substance-free equilibrium:}
+
+Let:
+\[
+f_1(S,D,A,R) = \Lambda N - (\beta D + \mu)S
+\]
+\[
+f_2(S,D,A,R) = \beta SD - (r + \mu + \alpha + \rho)D
+\]
+\[
+f_3(S,D,A,R) = \rho D - (\theta + \mu + \gamma)A
+\]
+\[
+f_4(S,D,A,R) = \alpha D + \gamma A - \mu R
+\]
+
+The Jacobian matrix \( J \) of the system of differential equations is:
+\[
+J(S^*, D^*, A^*, R^*) = \begin{pmatrix}
+	\frac{\partial f_1}{\partial S} & \frac{\partial f_1}{\partial D} & \frac{\partial f_1}{\partial A} & \frac{\partial f_1}{\partial R} \\
+	\frac{\partial f_2}{\partial S} & \frac{\partial f_2}{\partial D} & \frac{\partial f_2}{\partial A} & \frac{\partial f_2}{\partial R} \\
+	\frac{\partial f_3}{\partial S} & \frac{\partial f_3}{\partial D} & \frac{\partial f_3}{\partial A} & \frac{\partial f_3}{\partial R} \\
+	\frac{\partial f_4}{\partial S} & \frac{\partial f_4}{\partial D} & \frac{\partial f_4}{\partial A} & \frac{\partial f_4}{\partial R}
+\end{pmatrix}
+\]
+The Jacobian matrix \( J \) of the system is given by:
+
+
+\[
+J = \begin{pmatrix}
+	-(\beta D+\mu) & -\beta S & 0 & 0 \\
+	\beta D & -\beta S - (r + \mu + \alpha + \rho) & 0 & 0 \\
+	0 & \rho & -(\theta + \mu + \gamma) & 0 \\
+	0 & \alpha & \gamma & -\mu
+\end{pmatrix}
+\]
+
+
+
+
+
+
+
+Substituting the values at the substance-free equilibrium \( (S^*, D^*, A^*, R^*) = \left( \frac{\Lambda}{\mu}, 0, 0, 0 \right) \), we get:
+\[
+J\left( \frac{\Lambda}{\mu}, 0, 0, 0 \right) = \begin{pmatrix}
+	-\mu & -\beta \frac{\Lambda}{\mu} & 0 & 0 \\
+	0 & -\beta \frac{\Lambda}{\mu} - (r + \mu + \alpha + \rho) & 0 & 0 \\
+	0 & \rho & -(\theta + \mu + \gamma) & 0 \\
+	0 & \alpha & \gamma & -\mu
+\end{pmatrix}
+\]
+The substance-free equilibrium, \( E^f \), is locally asymptotically stable if all the eigenvalues of \( J \) are less than 0. We will find these by solving for the eigenvalues. Start with:
+
+\[
+|J - \lambda I_4| = 0,
+\]
+
+where
+
+\[
+\left| J - \lambda I_4 \right| = \begin{vmatrix}
+	-\mu - \lambda & -\frac{\beta \Lambda}{\mu} & 0 & 0 \\
+	0 & -\frac{\beta \Lambda}{\mu} - (r + \mu + \alpha + \rho) - \lambda & 0 & 0 \\
+	0 & \rho & -(\theta + \mu + \gamma) - \lambda & 0 \\
+	
+	0 & \alpha & \gamma & -\mu - \lambda
+\end{vmatrix} = 0
+\]
+This simplifies to:
+
+\[
+(-\mu - \lambda)^2 (-\beta \frac{\Lambda}{\mu} - (r + \mu + \alpha + \rho) - \lambda) (-(\theta + \mu + \gamma) - \lambda) = 0.
+\]
+
+Thus, the eigenvalues \( \lambda_1, \lambda_2, \lambda_3, \lambda_4 \) are:
+\[
+\lambda_1 = -\mu, \quad \lambda_2 = -\beta \frac{\Lambda}{\mu} - (r + \mu + \alpha + \rho), \quad \lambda_3 = -(\theta + \mu + \gamma).
+\]
+
+Since all eigenvalues \( \lambda_1, \lambda_2, \lambda_3 \) are negative, the substance-free equilibrium \( E^f \) is locally asymptotically stable.
+
+\subsection{The Basic Reproduction Number \( R_0 \)}
+To determine the potential persistence of substance abuse among commercial drivers, we use the basic reproductive number, \( R_0 \). This value represents the average number of individuals a substance-abusing driver is expected to influence if introduced into a population entirely composed of susceptible individuals. If \( R_0 > 1 \), the prevalence of substance abuse is sustained, indicating an ongoing issue within the population unless interventions are implemented. Conversely, if \( R_0 < 1 \), the prevalence diminishes over time, suggesting that substance abuse may naturally decline without significant external influences.\\
+Reproduction number \( R_0 \) is calculated using the method of the next-generation matrix.
+
+\subsection*{Steps to Compute the Basic Reproduction Number \( R_0 \):}
+
+\textit{Step 1: Identify the Infection Compartments}
+\\The infection compartments in this system are:
+\begin{enumerate}
+	\item \( D \) (drug users)
+	\item \( A \) (substance abusers)
+\end{enumerate}
+
+\textit{Step 2: Construct the Transmission Matrix \( F \)}
+\\The transmission matrix \( F \) represents the rate of new infections produced by each compartment. The relevant new infection term in the equations is \( \beta SD \). Let \( f_1 = \beta SD \), \( f_2 = 0 \) then:
+\[ 
+F = \begin{pmatrix}
+	\frac{\partial f_1}{\partial D} & \frac{\partial f_1}{\partial A} \\
+	\frac{\partial f_2}{\partial D} & \frac{\partial f_2}{\partial A}
+\end{pmatrix}
+= \begin{pmatrix}
+	\beta S & 0 \\
+	0 & 0
+\end{pmatrix}
+\]
+where \( S = \frac{\Lambda}{\mu} \). Therefore,
+\[ 
+F = \begin{pmatrix}
+	\frac{\beta \Lambda}{\mu} & 0 \\
+	0 & 0
+\end{pmatrix}
+\]
+
+\textit{Step 3: Construct the Transition Matrix \( V \)}
+\\The transition matrix \( V \) represents the rates of transitions out of the infection compartments. Let \( f_3 = (\mu + \alpha + \rho)D \), \( f_4 = -\rho D + (\mu + \gamma)A \) then:
+\[ 
+V = \begin{pmatrix}
+	\frac{\partial f_3}{\partial D} & \frac{\partial f_3}{\partial A} \\
+	\frac{\partial f_4}{\partial D} & \frac{\partial f_4}{\partial A}
+\end{pmatrix}
+= \begin{pmatrix}
+	\mu + \alpha + \rho & 0 \\
+	-\rho  & \mu + \gamma
+\end{pmatrix}
+\]
+
+This matrix \( V \) describes how individuals move between the compartments \( D \) (drug users) and \( A \) (substance abusers), taking into account the rates of recovery, transitions, and interactions within the population.\\
+
+\textit{Step 4: Calculate the Next-Generation Matrix \( K \)}
+
+The next-generation matrix \( K \) is obtained by multiplying \( F \) and \( V^{-1} \). The inverse of \( V \) is:
+\[ 
+V^{-1} = \frac{1}{(\mu + \alpha + \rho)(\mu + \gamma)} \begin{pmatrix}
+	\mu + \gamma & 0 \\
+	\rho & \mu + \alpha + \rho
+\end{pmatrix}
+= \begin{pmatrix}
+	\frac{1}{\mu + \alpha + \rho} & 0 \\
+	\frac{\rho}{(\mu + \alpha + \rho)(\mu + \gamma)} & \frac{1}{\mu + \gamma}
+\end{pmatrix}
+\]
+
+Now, compute \( K \):
+\[
+K = F V^{-1} = \begin{pmatrix}
+	\frac{\beta \Lambda}{\mu} & 0 \\
+	0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+		\frac{1}{\mu + \alpha + \rho} & 0 \\
+	\frac{\rho}{(\mu + \alpha + \rho)(\mu + \gamma)} & \frac{1}{\mu + \gamma}
+\end{pmatrix}
+= \begin{pmatrix}
+	\frac{\beta \Lambda}{\mu(\mu + \alpha + \rho)} & 0 \\
+	0 & 0
+\end{pmatrix}
+\]\\
+
+\textit{Step 5: Determine the Basic Reproduction Number \( R_0 \)}
+\\The basic reproduction number \( R_0 \) is the largest eigenvalue of the next-generation matrix \( K \). Since \( K \) is a diagonal matrix, the eigenvalues are simply the entries on the diagonal. Therefore:
+\[ 
+R_0  = \frac{\beta \Lambda}{\mu (\mu + \alpha + \rho)}
+\]
+ substituting the values of the parameter , $\Lambda$ =0.027,   $\mu$=0.0164,   $\beta$=0.23,   $\rho$=0.746,   $\alpha$=0.75
+\[R_0  = \frac{ 0.027*0.23}{0.0164 (0.0164 + 0.75 + 0.746)}\]
+
+`Therefore;\[R_0= 0.25 < 1\]
+
+\subsection{Endemic Equilibrium:}
+
+The endemic equilibrium is denoted by \( E^e \) and defined as a steady-state solution for the model (1). This can occur when there is persistence of substance abuse. Hence \( E^e = (S^e, D^e, A^e, R^e) \).
+
+We equate the right side of equations in (1) to zero and solve the resulting steady-state system of equations:
+\[
+\begin{aligned}
+	&\Lambda - (\beta D + \mu)S = 0         & \quad &(2) \\
+	&\beta SD - (\mu + \alpha + \rho)D = 0 &       &(3) \\
+	&\rho D - (\mu + \gamma)A = 0          &       &(4) \\
+	&\alpha D + \gamma A - \mu R = 0       &       &(5)
+\end{aligned}
+\]
+
+From equation (2), solving for \( D \):
+\[
+\Lambda - (\beta D + \mu)S = 0 \implies \Lambda = (\beta D + \mu)S \implies D = \frac{\Lambda - \mu S}{\beta S} \quad \text{(6)}
+\]
+
+From equation (3), solving for \( S \):
+\[
+\beta SD - (\mu + \alpha + \rho)D = 0 \implies \beta S D = (\mu + \alpha + \rho)D \implies S^e = S = \frac{\mu + \alpha + \rho}{\beta} \quad \text{(7)}
+\]
+
+From equation (4), solving for \( A \):
+\[
+\rho D - (\mu + \gamma)A = 0 \implies \rho D = (\mu + \gamma)A \implies A^e = A = \frac{\rho D}{\mu + \gamma} \quad \text{(8)}
+\]
+
+Substituting \( S \) from equation (7) into \( D \) (6):
+\[
+D = \frac{\Lambda \beta - \mu(\mu + \alpha + \rho)}{\beta(\mu + \alpha + \rho)} \implies D^e = D = \frac{\Lambda \beta - \mu(\mu + \alpha + \rho)}{\beta(\mu + \alpha + \rho)}
+\]
+
+Substituting \( D \) into equation (8):
+\[
+A = \frac{\rho (\Lambda \beta - \mu(\mu + \alpha + \rho))}{\beta(\mu + \alpha + \rho)(\mu + \gamma)} \implies A^e = A = \frac{\rho (\Lambda \beta - \mu(\mu + \alpha + \rho))}{\beta(\mu + \alpha + \rho)(\mu + \gamma)}
+\]
+
+From equation (5), solving for \( R \):
+\[
+\alpha D + \gamma A - \mu R = 0 \implies R = \frac{\alpha D + \gamma A}{\mu}
+\]
+
+Substituting the values of \( D^e \) and \( A^e \) into the equation:
+\[
+R = \frac{\alpha \left( \Lambda \beta - \mu(\mu + \alpha + \rho) \right) + \gamma \rho \left( \Lambda \beta - \mu(\mu + \alpha + \rho) \right)}{\mu \beta (\mu + \alpha + \rho)(\mu + \gamma)}
+\]
+
+ \( R^e \) is given by:
+\[
+R^e = R = \frac{(\mu + \gamma)\alpha + \gamma \rho( \Lambda \beta - \mu(\mu + \alpha + \rho))}{\mu \beta (\mu + \alpha + \rho)(\mu + \gamma)} 
+\]
+therefore endemic equilibrium is given by ;\[E^e=\frac{\mu + \alpha + \rho}{\beta} ,\frac{\Lambda \beta - \mu(\mu + \alpha + \rho)}{\beta(\mu + \alpha + \rho)},\frac{\rho (\Lambda \beta - \mu(\mu + \alpha + \rho))}{\beta(\mu + \alpha + \rho)(\mu + \gamma)},\frac{(\mu + \gamma)\alpha + \gamma \rho( \Lambda \beta - \mu(\mu + \alpha + \rho))}{\mu \beta (\mu + \alpha + \rho)(\mu + \gamma)} \]
+
+\subsection{Sensitivity Analysis of \( R_0 \)}
+
+The fundamental objective of sensitivity analysis is to quantitatively estimate the  importance of each parameter to the spread of substance abuse among commercial drivers. Sensitivity analysis is commonly used to determine the validity of model predictions given parameter values, especially considering errors in data collection and estimation.
+
+The normalized forward sensitivity index of \( R_0 \), which depends differentiably on parameter \( P \), is defined by:
+\[ S_P^{R_0} = \frac{\partial R_0}{\partial P} \cdot \frac{P}{R_0} \]
+
+The basic reproduction number \( R_0 \) depends on five parameters: \( \Lambda, \beta, \mu, \alpha, \rho \). Specifically,
+\[ R_0 = \frac{\beta \Lambda}{\mu (\mu + \alpha + \rho)} \]
+
+For the parameter \( \Lambda \), we calculate the sensitivity index \( S_{\Lambda}^{R_0} \):
+\[ S_{\Lambda}^{R_0} = \frac{\partial R_0}{\partial \Lambda} \cdot \frac{\Lambda}{R_0} \]
+
+Applying the quotient rule:
+Let \( U = \beta \Lambda \) and \( V = \mu (\mu + \alpha + \rho) \),
+\[ \frac{\partial R_0}{\partial \Lambda} = \frac{U' V - V' U}{V^2} = \frac{\beta \mu (\mu + \alpha + \rho)}{\left( \mu (\mu + \alpha + \rho) \right)^2} \]
+
+Therefore,
+\[ S_{\Lambda}^{R_0} = \frac{\beta \mu (\mu + \alpha + \rho)}{\left( \mu (\mu + \alpha + \rho) \right)^2} \cdot \frac{\Lambda}{\frac{\beta \Lambda}{\mu (\mu + \alpha + \rho)}} \]
+
+Simplifying gives us:
+\[ S_{\Lambda}^{R_0} = 1 \]
+
+This indicates that the sensitivity index \( S_{\Lambda}^{R_0} \) for \( R_0 \) with respect to \( \Lambda \) is positive, suggesting that \( \Lambda \) has a significant impact on \( R_0 \).\\\\
+
+
+For parameter \( P = \beta \):
+\[ S_{\beta}^{R_0} = \frac{\partial R_0}{\partial \beta} \cdot \frac{\beta}{R_0} \]
+Given:
+\[ R_0 = \frac{\beta \Lambda}{\mu (\mu + \alpha + \rho)} \]
+Let \( U = \beta \Lambda \) and \( V = \mu (\mu + \alpha + \rho) \),
+\[ \frac{\partial R_0}{\partial \beta} = \frac{U' V - V' U}{V^2} = \frac{\Lambda \mu (\mu + \alpha + \rho)}{\left( \mu (\mu + \alpha + \rho) \right)^2} \]
+Therefore,
+\[ S_{\beta}^{R_0} = \frac{\Lambda \mu (\mu + \alpha + \rho)}{\left( \mu (\mu + \alpha + \rho) \right)^2} \cdot \frac{\beta \mu (\mu + \alpha + \rho)}{\beta \Lambda} \]
+Simplifying gives us:
+\[ S_{\beta}^{R_0} = 1 > 0 \]
+
+For parameter \( P = \mu \):
+\[ S_{\mu}^{R_0} = \frac{\partial R_0}{\partial \mu} \cdot \frac{\mu}{R_0} \]
+Given:
+\[ R_0 = \frac{\beta \Lambda}{\mu (\mu + \alpha + \rho)} \]
+Let \( U = \beta \Lambda \) and \( V = \mu (\mu + \alpha + \rho) \),
+\[ \frac{\partial R_0}{\partial \mu} = \frac{U' V - V' U}{V^2} = -\frac{\beta \Lambda (\mu + \alpha + \rho)}{\mu^2 (\mu + \alpha + \rho)^2} \]
+Therefore,
+\[ S_{\mu}^{R_0} = -\frac{\beta \Lambda (\mu + \alpha + \rho)}{\mu^2 (\mu + \alpha + \rho)^2} \cdot \frac{\mu^2 (\mu + \alpha + \rho)}{\beta \Lambda} \]
+Simplifying gives us:
+\[ S_{\mu}^{R_0} = -1 < 0 \]
+
+For parameter \( P = \alpha \):
+\[ S_{\alpha}^{R_0} = \frac{\partial R_0}{\partial \alpha} \cdot \frac{\alpha}{R_0} \]
+Given:
+\[ R_0 = \frac{\beta \Lambda}{\mu (\mu + \alpha + \rho)} \]
+Let \( U = \beta \Lambda \) and \( V = \mu (\mu + \alpha + \rho) \),
+\[ \frac{\partial R_0}{\partial \alpha} = \frac{U' V - V' U}{V^2} = -\frac{\beta \Lambda \mu}{\mu^2 (\mu + \alpha + \rho)^2} \]
+Therefore,
+\[ S_{\alpha}^{R_0} = -\frac{\beta \Lambda \mu}{\mu^2 (\mu + \alpha + \rho)^2} \cdot \frac{\alpha \mu (\mu + \alpha + \rho)}{\beta \Lambda} \]
+Simplifying gives us:
+\[ S_{\alpha}^{R_0} = -\frac{\alpha}{\mu + \alpha + \rho} < 0 \]
+
+For parameter \( P = \rho \):
+\[ S_{\rho}^{R_0} = \frac{\partial R_0}{\partial \rho} \cdot \frac{\rho}{R_0} \]
+Given:
+\[ R_0 = \frac{\beta \Lambda}{\mu (\mu + \alpha + \rho)} \]
+Let \( U = \beta \Lambda \) and \( V = \mu (\mu + \alpha + \rho) \),
+\[ \frac{\partial R_0}{\partial \rho} = \frac{U' V - V' U}{V^2} = -\frac{\beta \Lambda \mu}{\mu^2 (\mu + \alpha + \rho)^2} \]
+Therefore,
+\[ S_{\rho}^{R_0} = -\frac{\beta \Lambda \mu}{\mu^2 (\mu + \alpha + \rho)^2} \cdot \frac{\rho \mu (\mu + \alpha + \rho)}{\beta \Lambda} \]
+Simplifying gives us:
+\[ S_{\rho}^{R_0} = -\frac{\rho}{\mu + \alpha + \rho} < 0 \]
+\begin{center}
+
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Parameter} & \textbf{Sensitivity index(-ve/+ve)} \\
+		
+	
+		\hline$\Lambda$ &  \hspace{1.7cm}+ve \\
+		\hline	$\mu$ & \hspace{1.7cm}-ve \\
+        \hline	$\beta$ & \hspace{1.7cm}+ve \\
+		\hline	$\rho$ & \hspace{1.7cm}-ve \\
+		\hline	$\alpha$ & \hspace{1.7cm}-ve \\
+		\hline
+	\end{tabular}
+\end{center}
+These sensitivity index values indicate whether a change in each parameter \( \beta, \mu, \alpha, \rho \) will increase or decrease the value of \( R_0 \). A positive index suggests that an increase in the parameter will increase \( R_0 \), while a negative index suggests the opposite.
+
+
+\chapter{4 RESULTS}
+\section{Numerical analysis and Simulation}
+\textbf{Recruitment rate}\\
+It is assumed to be birth rate  and according to kenya birth rate it is estimated that there is 27 births per 1000 people. Therefore $\Lambda $=$\frac{27}{1000}$ =0.027 \\
+\textbf{Death rate }\\
+Is assumed to be inversely 
+proportional to the life expectancy of truck driver which is taken to be approximately 61 years according to Centers for Disease Control and Prevention . Therefore $\mu$=$\frac{1}{61}$=0.0164\\
+\textbf{Substance Initiation rate}\\
+This the rate at which the susceptible population start engaging in substance abuse. According to authors in [8] the substance initiation rate is $\beta = 0.23$ \\ 
+ \textbf{Substance Abuse rate}\\
+ According to Akande, R. O.,et al. (2023) . The proportion of respondents who had ever abused a psychoactive substance was 74.6\%. Therefore i assume it to be substance abuse rate $\rho = \frac{74.6}{100}$=0.746\\
+ \textbf{Recovery rate of substance users}\\
+Based on research from the Centers for Disease Control and Prevention, 3 out of 4 people  recover from addiction therefore i assume it to be recovery rate of substance users;  $\alpha$=$\frac{3}{4}$=0.75
+\newpage
+ \chapter*{References}
+ \normalsize
+ \addcontentsline{toc}{chapter}{References}
+	1.	Zhao, X., Zhang, X., \& Rong, J. (2014). Study of the effects of alcohol on drivers and driving performance on straight road. Mathematical problems in engineering, 2014(1), 607652.\\\\
+	2.	Yunusa, U., Bello, U. L., Idris, M., Haddad, M. M., \& Adamu, D. (2017). Determinants of substance abuse among commercial bus drivers in Kano Metropolis, Kano State, Nigeria. American Journal of Nursing Science, 6(2), 125-130.\\\\
+ 3.   Dini, G., Bragazzi, N. L., Montecucco, A., Rahmani, A., \& Durando, P. (2019). Psychoactive drug consumption among truck-drivers: a systematic review of the literature with meta-analysis and meta-regression. Journal of preventive medicine and hygiene, 60(2), E124.\\\\
+	4.  Behnood, A., \& Mannering, F. L. (2017). The effects of drug and alcohol consumption on driver injury severities in single-vehicle crashes. Traffic injury prevention, 18(5), 456-462.\\\\
+5.	Matonya, F., \& Kuznetsov, D. (2021). Mathematical Modelling of   Drug Abuse and its Effect in the Society. \\\\
+	6.	Orwa, T. O., \& Nyabadza, F. (2019). Mathematical modelling and analysis of alcohol methamphetamine co-abuse in the Western Cape province of South Africa. Cogent Mathematics \& Statistics, 6(1), 1641175. \\\\
+7.	Martin, J. L., Gadegbeku, B., Wu, D., Viallon, V., \& Laumon, B. (2017). Cannabis, alcohol and fatal road accidents. PLoS one, 12(11), e0187320.\\\\
+	8.	Kanyaa, J. K., Osman, S., \& Wainaina, M. (2018). Mathematical modelling of substance abuse by commercial drivers. Global Journal of Pure and Applied Mathematics, 14(9), 1149-1165.\\\\
+9. Akande, R. O., Akande, J. O., Babatunde, O. A., Ajayi, A. O., Ajayi, A. A., Ige, R. O., ... \& Olatunji, M. B. (2023). Psychoactive substance abuse among commercial bus drivers in Umuahia, Abia State, South-Eastern Nigeria: an uncontrolled “epidemic” with attendant road traffic crashes. BMC public health, 23(1), 250.
+
+\begin{center}
+	
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Parameter} & \textbf{Parameter values} & \textbf{Sources}\\
+		
+		
+		\hline$\Lambda$ &  \hspace{1.7cm}0.027 & Kenya birth rate (Kenya National Bureau of Statistics) \\
+		\hline	$\mu$ & \hspace{1.7cm}0.0164 & \\
+		\hline	$\beta$ & \hspace{1.7cm}0.23 &\\
+		\hline	$\rho$ & \hspace{1.7cm}0.746 &\\
+		\hline	$\alpha$ & \hspace{1.7cm}0.75 &\\
+		\hline  $R_0$ & \hspace{1.7cm}0.25 & \\
+		\hline
+	\end{tabular}
+\end{center}
+
+	
+\end{document}
